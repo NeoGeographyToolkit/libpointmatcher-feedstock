@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d0e02ec..2c58897 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -309,7 +309,7 @@ add_subdirectory(examples)
+ # Evaluation programs
+ add_subdirectory(evaluations)
+ # Unit testing
+-add_subdirectory(utest)
++#add_subdirectory(utest)
+ 
+ 
+ #=================== allow find_package() =========================

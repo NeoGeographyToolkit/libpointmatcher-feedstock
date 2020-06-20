@@ -1,0 +1,46 @@
+{% set version = "bcf4b04" %}
+
+package:
+  name: libpointmatcher
+  version: {{ version }}
+
+source:
+  git_url: git@github.com:ethz-asl/libpointmatcher.git
+  git_tag: {{ version }}
+  patches:
+# Custom tweaks for ASP
+    - 0001_custom_lib_changes.patch
+# Build fixes
+    - 0002_CMake_fix.patch
+# Mac link issue fix
+    - 0003_turn_off_utest.patch
+
+build:
+  number: {{ version }}
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - cmake
+  host:
+    - boost   1.68.0
+    - eigen   3.3.7
+    - libnabo 2df86e0
+  run:
+    - boost   1.68.0
+    - eigen   3.3.7
+    - libnabo 2df86e0
+
+test:
+  commands:
+  files:
+
+about:
+  home: https://github.com/ethz-asl/libpointmatcher
+  license: BSD
+  summary: An "Iterative Closest Point" library for 2-D/3-D mapping in Robotics
+  description:
+
+extra:
+  recipe-maintainers:
