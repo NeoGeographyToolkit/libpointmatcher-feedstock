@@ -1,12 +1,12 @@
-{% set version = "bcf4b04" %}
+{% set version = "isis4.4.0" %} # synched up to isis dependencies for this version
 
 package:
   name: libpointmatcher
   version: {{ version }}
 
 source:
-  git_url: git@github.com:ethz-asl/libpointmatcher.git
-  git_tag: {{ version }}
+  git_url: https://github.com/oleg-alexandrov/libpointmatcher.git
+  git_tag: f09bdfe
   patches:
 # Custom tweaks for ASP
     - 0001_custom_lib_changes.patch
@@ -16,7 +16,7 @@ source:
     - 0003_turn_off_utest.patch
 
 build:
-  number: {{ version }}
+  number: 0
 
 requirements:
   build:
@@ -24,13 +24,15 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
   host:
-    - boost   1.68.0
+    - boost   1.68
     - eigen   3.3.7
-    - libnabo 2df86e0
+    - libnabo isis4.4.0
+    - isis    4.4.0
   run:
-    - boost   1.68.0
+    - boost   1.68
     - eigen   3.3.7
-    - libnabo 2df86e0
+    - libnabo isis4.4.0
+    - isis    4.4.0
 
 test:
   commands:
