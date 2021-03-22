@@ -27,12 +27,12 @@ requirements:
     - boost   1.68
     - eigen   3.3.7
     - libnabo isis4.4.0
-    - isis    4.4.0
+    - isis    4.4.0 # to catch dependency problems
   run:
     - boost   1.68
     - eigen   3.3.7
     - libnabo isis4.4.0
-    - isis    4.4.0
+    - isis    4.4.0 # to catch dependency problems
 
 test:
   commands:
