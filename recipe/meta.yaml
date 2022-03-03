@@ -1,4 +1,4 @@
-{% set version = "isis5.0.1_bugfix2" %} # synched up to isis dependencies for this version
+{% set version = "isis5.0.1_bugfix" %} # synched up to isis dependencies for this version
 
 package:
   name: libpointmatcher
@@ -6,7 +6,7 @@ package:
 
 source:
   git_url: https://github.com/oleg-alexandrov/libpointmatcher.git
-  git_tag: 08515d5
+  git_tag: decfa4e
 
 # The custom patches have been applied to the code and checked in to
 # the repo, so they need not be applied here.
@@ -23,73 +23,26 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
+# Use the local compiler for OSX. ASP is not compiled well with the conda compiler.
+    - {{ compiler('c') }}                      # [linux]
+    - {{ compiler('cxx') }}                    # [linux]
     - cmake
 
   host:
-    - llvm-openmp               12.0.1         # [osx]
-    - _libgcc_mutex             0.1            # [linux]
-    - gcc_impl_linux-64         7.5.0          # [linux]
-    - gcc_linux-64              7.5.0          # [linux]
-    - libgcc                    7.2.0          # [linux]
-    - libgcc-devel_linux-64     7.5.0          # [linux]
-#    - libgcc-ng                 11.1.0         # [linux]
-    - boost                     1.68.0
-    - eigen                     3.3.7
-    - libnabo                   isis5.0.1
-    - krb5                      1.16.3
-    - libssh2                   1.8.0 
-    - freetype                  2.7        
-    - ncurses                   6.2            
-    - openssl                   1.0.2u         
-    - python                    3.6.7          
-    - python-dateutil           2.8.2          
-    - python_abi                3.6            
-    - jpeg                      9d
-    - openjpeg                  2.1.0
-    - libpng                    1.6.37
-    - libtiff                   4.0.10
-    - zlib                      1.2.11
-    - openblas                  0.2.19
-    - libxml2                   2.9.9
-    - libblas                   3.8.0
-    - libiconv                  1.15
-    - numpy                     1.13
-    - isis                      5.0.1
-    - libopenblas               0.3.10 
+    - libgcc-ng >=9.3.0    # [linux]
+    - libstdcxx-ng >=9.3.0 # [linux] 
+    - llvm-openmp >=12.0.1 # [osx] 
+    - boost 1.68.0.*
+    - eigen 3.3.7.*
+    - libnabo isis5.0.1.*
 
   run:
-    - llvm-openmp               12.0.1         # [osx]
-    - _libgcc_mutex             0.1            # [linux]
-    - gcc_impl_linux-64         7.5.0          # [linux]
-    - gcc_linux-64              7.5.0          # [linux]
-    - libgcc                    7.2.0          # [linux]
-    - libgcc-devel_linux-64     7.5.0          # [linux]
-#    - libgcc-ng                 11.1.0         # [linux]
-    - boost                     1.68.0
-    - eigen                     3.3.7
-    - libnabo                   isis5.0.1
-    - krb5                      1.16.3         
-    - libssh2                   1.8.0         
-    - freetype                  2.7        
-    - ncurses                   6.2            
-    - openssl                   1.0.2u         
-    - python                    3.6.7          
-    - python-dateutil           2.8.2          
-    - python_abi                3.6            
-    - jpeg                      9d
-    - openjpeg                  2.1.0
-    - libpng                    1.6.37
-    - libtiff                   4.0.10
-    - zlib                      1.2.11
-    - openblas                  0.2.19
-    - libxml2                   2.9.9
-    - libblas                   3.8.0
-    - libiconv                  1.15
-    - numpy                     1.13
-    - isis                      5.0.1
-    - libopenblas               0.3.10 
+    - libgcc-ng >=9.3.0    # [linux]
+    - libstdcxx-ng >=9.3.0 # [linux] 
+    - llvm-openmp >=12.0.1 # [osx] 
+    - boost 1.68.0.*
+    - eigen 3.3.7.*
+    - libnabo isis5.0.1.*
 
 test:
   commands:
