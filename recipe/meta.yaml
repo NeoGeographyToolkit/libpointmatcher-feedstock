@@ -1,4 +1,4 @@
-{% set version = "isis5.0.1_bugfix" %} # synched up to isis dependencies for this version
+{% set version = "isis6" %} # synched up to isis dependencies for this version
 
 package:
   name: libpointmatcher
@@ -6,7 +6,7 @@ package:
 
 source:
   git_url: https://github.com/oleg-alexandrov/libpointmatcher.git
-  git_tag: decfa4e
+  git_tag: 0f909cf
 
 # The custom patches have been applied to the code and checked in to
 # the repo, so they need not be applied here.
@@ -23,9 +23,7 @@ build:
 
 requirements:
   build:
-# Use the local compiler for OSX. ASP is not compiled well with the conda compiler.
-    - {{ compiler('c') }}                      # [linux]
-    - {{ compiler('cxx') }}                    # [linux]
+    - {{ compiler('cxx') }}
     - cmake
 
   host:
@@ -33,16 +31,16 @@ requirements:
     - libstdcxx-ng >=9.3.0 # [linux] 
     - llvm-openmp >=12.0.1 # [osx] 
     - boost 1.68.0.*
-    - eigen 3.3.7.*
-    - libnabo isis5.0.1.*
+    - eigen 3.4.0
+    - libnabo isis6
 
   run:
     - libgcc-ng >=9.3.0    # [linux]
     - libstdcxx-ng >=9.3.0 # [linux] 
     - llvm-openmp >=12.0.1 # [osx] 
     - boost 1.68.0.*
-    - eigen 3.3.7.*
-    - libnabo isis5.0.1.*
+    - eigen 3.4.0
+    - libnabo isis6
 
 test:
   commands:
