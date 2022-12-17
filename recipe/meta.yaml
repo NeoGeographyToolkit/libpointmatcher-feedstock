@@ -1,4 +1,4 @@
-{% set version = "isis6" %} # synched up to isis dependencies for this version
+{% set version = "isis7" %} # synched up to isis dependencies for this version
 
 package:
   name: libpointmatcher
@@ -6,17 +6,7 @@ package:
 
 source:
   git_url: https://github.com/oleg-alexandrov/libpointmatcher.git
-  git_tag: 0f909cf
-
-# The custom patches have been applied to the code and checked in to
-# the repo, so they need not be applied here.
-#  patches:
-# Custom tweaks for ASP
-#    - 0001_custom_lib_changes.patch
-# Build fixes
-#    - 0002_CMake_fix.patch
-# Mac link issue fix
-#    - 0003_turn_off_utest.patch
+#  git_tag: 0f909cf
 
 build:
   number: 0
@@ -27,20 +17,14 @@ requirements:
     - cmake
 
   host:
-    - libgcc-ng >=9.3.0    # [linux]
-    - libstdcxx-ng >=9.3.0 # [linux] 
-    - llvm-openmp >=12.0.1 # [osx] 
-    - boost 1.68.0.*
+    - boost 1.72.0
     - eigen 3.4.0
-    - libnabo isis6
+    - libnabo isis7
 
   run:
-    - libgcc-ng >=9.3.0    # [linux]
-    - libstdcxx-ng >=9.3.0 # [linux] 
-    - llvm-openmp >=12.0.1 # [osx] 
-    - boost 1.68.0.*
+    - boost 1.72.0
     - eigen 3.4.0
-    - libnabo isis6
+    - libnabo isis7
 
 test:
   commands:
