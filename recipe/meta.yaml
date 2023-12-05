@@ -1,4 +1,4 @@
-{% set version = "isis7" %} # synched up to isis dependencies for this version
+{% set version = "asp3.4.0_alpha" %} # synched up to isis dependencies for this version
 
 package:
   name: libpointmatcher
@@ -17,14 +17,14 @@ requirements:
     - cmake
 
   host:
-    - boost 1.72.0
+    - boost 1.82.0
     - eigen 3.4.0
-    - libnabo isis7
+    - libnabo asp3.4.0_alpha
 
   run:
-    - boost 1.72.0
+    - boost 1.82.0
     - eigen 3.4.0
-    - libnabo isis7
+    - libnabo asp3.4.0_alpha
 
 test:
   commands:
