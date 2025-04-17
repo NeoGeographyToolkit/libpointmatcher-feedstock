@@ -1,11 +1,11 @@
-{% set version = "asp3.4.0_alpha" %} # synched up to isis dependencies for this version
+{% set version = "asp3.5.0" %} # synched up to isis dependencies for this version
 
 package:
   name: libpointmatcher
   version: {{ version }}
 
 source:
-  git_url: https://github.com/oleg-alexandrov/libpointmatcher.git
+  git_url: https://github.com/NeoGeographyToolkit/libpointmatcher
 #  git_tag: 0f909cf
 
 build:
@@ -17,14 +17,15 @@ requirements:
     - cmake
 
   host:
-    - boost 1.82.0
+    - boost 1.78.0
     - eigen 3.4.0
-    - libnabo asp3.4.0_alpha
+    - libnabo
+    - llvm-openmp
 
   run:
-    - boost 1.82.0
+    - boost 1.78.0
     - eigen 3.4.0
-    - libnabo asp3.4.0_alpha
+    - libnabo
 
 test:
   commands:
